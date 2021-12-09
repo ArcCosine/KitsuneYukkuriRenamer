@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+    <title>きつねゆっくり名前変更ツール</title>
+    <link rel="stylesheet" href="./app.css">
+  </head>
+  <body>
+    <div id="app" class="container">
+      <label>
+        <span class="btn btn-light">
+          フォルダを選択
+          <input type="file" webkitdirectory />
+        </span>
+      </label>
+      <button class="btn" id="start">開始する</button>
+    </div>
+  </body>
+</html>
