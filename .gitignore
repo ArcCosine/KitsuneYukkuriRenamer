@@ -3,10 +3,3 @@ node_modules
 dist
 dist-ssr
 *.local
-.twstyled-cache/
-
-
-# Secrets
-.env-secrets.json
-
-# Workspaces
