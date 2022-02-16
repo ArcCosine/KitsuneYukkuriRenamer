@@ -3,7 +3,13 @@ import "./App.css";
 import Result from "./Result";
 
 function App() {
-    const [count, setCount] = useState(0);
+    const handleOpenFolder = ()=>{
+        console.log('folder open');
+    };
+
+    const handleTranslate = ()=>{
+        console.log('translate start');
+    };
 
     return (
         <div className="App">
@@ -11,8 +17,8 @@ function App() {
                 <p>きつねゆっくりリネーマー</p>
             </header>
             <div>
-                <button type="button">フォルダを選ぶ</button>
-                <button type="button">変換開始</button>
+                <button type="button" onClick={handleOpenFolder}>フォルダを選ぶ</button>
+                <button type="button" onClick={handleTranslate}>変換開始</button>
                 <Result></Result>
             </div>
         </div>
