@@ -1,6 +1,7 @@
-import { useState } from "react";
+//import { useState } from "react";
 import "./App.css";
 import Result from "./Result";
+//import { ResultObject } from "./setting";
 
 function App() {
     const handleOpenFolder = ()=>{
