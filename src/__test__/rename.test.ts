@@ -5,19 +5,25 @@ const beforeFile = "testfile.txt";
 const afterFile = "renamefile.txt";
 beforeAll(()=>{
     try {
-        fs.unlinkSync(beforeFile);
-        fs.unlinkSync(afterFile);
         const time = new Date();
-        fs.untimesSync(beforeFile, time, time);
+        fs.utimesSync(beforeFile, time, time);
     }catch(e){
         fs.closeSync(fs.openSync(beforeFile, 'w'));
         console.log(e);
     }
 })
 
-test("rename", ()=>{
+afterAll(()=>{
+    try {
+        fs.unlinkSync(afterFile)
+    }catch(e){
+        console.log(e)
+    }
+})
 
-    Rename(beforeFile, afterFile);
+test("rename", async ()=>{
+
+    await Rename(beforeFile, afterFile);
     const isFileExsists = fs.existsSync(afterFile);
     expect(isFileExsists).toBe(true);
 })
