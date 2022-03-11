@@ -11,8 +11,18 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  margin-bottom: 10vmin;
+}
+
+input[type=text] {
+  font-size: calc(10px + 2vmin);
+  line-height: calc(10px + 2vmin);
+  padding: 10px;
+  margin: 0 10px 0 0;
+  width: 100vmin;
 }
 
 button {
   font-size: calc(10px + 2vmin);
+  padding: 10px;
 }

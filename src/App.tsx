@@ -5,8 +5,8 @@ import Result from "./Result";
 
 function App() {
     const handleOpenFolder = async ()=>{
-        const folderPath = await window.myAPI.selectFolder();
-        console.log(folderPath);
+        const folderPath = await window.api.selectFolder();
+        document.getElementById("folderPath").value = folderPath;
     };
 
     const handleTranslate = ()=>{
@@ -19,7 +19,12 @@ function App() {
                 <p>きつねゆっくりリネーマー</p>
             </header>
             <div>
+                <input type="text" value="" id="folderPath" readOnly/>
+                </div>
+                <div>
                 <button type="button" onClick={handleOpenFolder}>フォルダを選ぶ</button>
+                </div>
+                <div>
                 <button type="button" onClick={handleTranslate}>変換開始</button>
                 <Result></Result>
             </div>
