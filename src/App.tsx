@@ -4,8 +4,9 @@ import Result from "./Result";
 //import { ResultObject } from "./setting";
 
 function App() {
-    const handleOpenFolder = ()=>{
-        console.log('folder open');
+    const handleOpenFolder = async ()=>{
+        const folderPath = await window.myAPI.selectFolder();
+        console.log(folderPath);
     };
 
     const handleTranslate = ()=>{

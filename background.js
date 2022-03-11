@@ -1,4 +1,4 @@
-import { app, BrowserWindow} from 'electron'
+import { app, BrowserWindow, dialog, ipcMain } from 'electron'
 import path from 'path'
 
 const isDevelopment = ( ( "" + process.env.NODE_ENV).trim() === 'development')
@@ -9,7 +9,18 @@ async function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js'),
+    }
+  })
+
+  ipcMain.handle('dialog:openDirectory', async ()=>{
+    const { canceld, filePaths } = await dialog.showOpenDialog(win, {
+      properties:['openDirectory']
+    })
+    if( canceld ){
+      return
+    } else {
+      return filePaths[0]
     }
   })
 
