@@ -1,6 +1,8 @@
 import { app, BrowserWindow, dialog, ipcMain } from 'electron'
 import path from 'path'
 
+const { RenameRule } = require("./RenameRule");
+
 const isDevelopment = ( ( "" + process.env.NODE_ENV).trim() === 'development')
 
 
@@ -24,8 +26,8 @@ async function createWindow () {
     }
   })
 
-  ipcMain.handle("fileRename", async ()=>{
-    
+  ipcMain.handle("fileRename", async (folderPath)=>{
+    await RenameRule(folderPath)
   })
 
   if ( isDevelopment ) {

@@ -1,5 +1,5 @@
-import { Rename } from "../Rename";
-import * as fs from "fs";
+const { Rename } = require("../../Rename");
+const fs = require("fs");
 
 const beforeFile = "testfile.txt";
 const afterFile = "renamefile.txt";

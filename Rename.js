@@ -1,8 +1,7 @@
-import { promises } from "fs";
-import * as fs from "fs";
+const fs = require("fs");
+const promises = fs.promises;
 
-
-export const Rename = async function( beforeName:string, afterName:string){
+const Rename = async function( beforeName, afterName){
     try {
         if( fs.existsSync(beforeName) ){
             await promises.rename(beforeName,afterName)
@@ -10,4 +9,8 @@ export const Rename = async function( beforeName:string, afterName:string){
     }catch(e){
         console.log(e);
     }
+}
+
+module.exports = {
+    Rename
 }
