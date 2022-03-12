@@ -24,6 +24,10 @@ async function createWindow () {
     }
   })
 
+  ipcMain.handle("fileRename", async ()=>{
+    
+  })
+
   if ( isDevelopment ) {
     // Load the url of the dev server if in development mode
     await win.loadURL('http://localhost:3000/')

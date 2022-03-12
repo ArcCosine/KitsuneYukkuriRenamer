@@ -1,7 +1,6 @@
 //import { useState } from "react";
 import "./App.css";
 import Result from "./Result";
-//import { ResultObject } from "./setting";
 
 function App() {
     const handleOpenFolder = async ()=>{
@@ -9,7 +8,9 @@ function App() {
         document.getElementById("folderPath").value = folderPath;
     };
 
-    const handleTranslate = ()=>{
+    const handleTranslate = async ()=>{
+        const folderPath = document.getElementById("folderPath").value;
+        await window.parseInt.fileRename(folderPath);
         console.log('translate start');
     };
 
