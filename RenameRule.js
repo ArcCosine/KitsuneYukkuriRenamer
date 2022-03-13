@@ -1,4 +1,4 @@
-const { Rename } = require("./Rename");
+import * as Rename  from "./Rename.js"
 
 const RenameRule = async( folderPath )=>{
 

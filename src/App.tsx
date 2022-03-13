@@ -10,7 +10,7 @@ function App() {
 
     const handleTranslate = async ()=>{
         const folderPath = document.getElementById("folderPath").value;
-        await window.parseInt.fileRename(folderPath);
+        await window.api.fileRename(folderPath);
         console.log('translate start');
     };
 

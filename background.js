@@ -1,7 +1,7 @@
 import { app, BrowserWindow, dialog, ipcMain } from 'electron'
 import path from 'path'
 
-const { RenameRule } = require("./RenameRule");
+import * as RenameRule  from "./RenameRule.js"
 
 const isDevelopment = ( ( "" + process.env.NODE_ENV).trim() === 'development')
 
@@ -12,6 +12,7 @@ async function createWindow () {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
+      contextIsolation: true,
     }
   })
 
@@ -27,7 +28,8 @@ async function createWindow () {
   })
 
   ipcMain.handle("fileRename", async (folderPath)=>{
-    await RenameRule(folderPath)
+    console.log(folderPath);
+    // await RenameRule(folderPath)
   })
 
   if ( isDevelopment ) {
