@@ -1,4 +1,5 @@
-const { Rename } = require("../../Rename");
+import { Rename } from "../../Rename.js";
+
 const fs = require("fs");
 
 const beforeFile = "testfile.txt";

@@ -1,16 +1,13 @@
-const fs = require("fs");
+import * as fs from 'fs'
+
 const promises = fs.promises;
 
-const Rename = async function( beforeName, afterName){
+export async function Rename(beforeName, afterName) {
     try {
-        if( fs.existsSync(beforeName) ){
-            await promises.rename(beforeName,afterName)
+        if (fs.existsSync(beforeName)) {
+            await promises.rename(beforeName, afterName);
         }
-    }catch(e){
+    } catch (e) {
         console.log(e);
     }
-}
-
-module.exports = {
-    Rename
 }
