@@ -2,22 +2,27 @@ import { useState } from "react";
 import "./App.css";
 import "./Result.css";
 
-declare global { interface Window { api: any } }
-window.api = window.api || {};
+declare global { interface Window { api?: any } }
 
 function App() {
     const [resultValue,setResultValue] = useState('結果をここに表示')
     const [folderPath,setFolderPath] = useState('');
 
     const handleOpenFolder = async ()=>{
+        if( window.api ) {
+
         const selectFolder = await window.api.selectFolder();
         setFolderPath(selectFolder);
         setResultValue("結果をここに表示");
+    }
+    
     };
 
     const handleTranslate = async ()=>{
+        if( window.api){
         const results = await window.api.fileRename(folderPath);
         setResultValue("変換完了");
+    }
     };
 
     return (
