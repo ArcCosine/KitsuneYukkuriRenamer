@@ -1,6 +1,8 @@
 {
     "name": "kitsuneyukkurirenamer",
     "version": "0.0.0",
+    "author": "Arc Cosine",
+    "description": "KitsuneYukkuriRename tools.",
     "main": "dist/background.js",
     "build": {
         "productName": "KitsuneYukkuriRenamer",
