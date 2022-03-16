@@ -3,17 +3,19 @@ import "./App.css";
 import "./Result.css";
 
 function App() {
-    const [result,setResult] = useState('結果をここに表示')
+    const [resultValue,setResultValue] = useState('結果をここに表示')
+    const [folderPath,setFolderPath] = useState('');
 
     const handleOpenFolder = async ()=>{
-        const folderPath = await window.api.selectFolder();
-        document.getElementById("folderPath").value = folderPath;
+        const selectFolder = await window.api.selectFolder();
+        setFolderPath(selectFolder.toString());
+        setResultValue("結果をここに表示");
     };
 
     const handleTranslate = async ()=>{
-        const folderPath = document.getElementById("folderPath").value;
+        setResultValue("変換開始");
         const results = await window.api.fileRename(folderPath);
-        setResult(results);
+        setResultValue("変換完了");
     };
 
     return (
@@ -22,16 +24,14 @@ function App() {
                 <p>きつねゆっくりリネーマー</p>
             </header>
             <div>
-                <input type="text" value="" id="folderPath" readOnly/>
+                <input type="text" value={folderPath} id="folderPath" readOnly/>
                 </div>
                 <div>
                 <button type="button" onClick={handleOpenFolder}>フォルダを選ぶ</button>
                 </div>
                 <div>
                 <button type="button" onClick={handleTranslate}>変換開始</button>
-                <div className="Result">
-                    <textarea>{result}</textarea>
-                </div>
+                <div className="Result">{resultValue}</div>
             </div>
         </div>
     );

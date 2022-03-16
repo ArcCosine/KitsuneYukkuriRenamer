@@ -1,8 +1,5 @@
 .Result {
   text-align: center;
-}
-
-textarea {
   font-size: calc(10px + 2vmin);
   width: 80vw;
   height: 10vh;
