@@ -1,8 +1,10 @@
-//import { useState } from "react";
+import { useState } from "react";
 import "./App.css";
-import Result from "./Result";
+import "./Result.css";
 
 function App() {
+    const [result,setResult] = useState('結果をここに表示')
+
     const handleOpenFolder = async ()=>{
         const folderPath = await window.api.selectFolder();
         document.getElementById("folderPath").value = folderPath;
@@ -10,10 +12,8 @@ function App() {
 
     const handleTranslate = async ()=>{
         const folderPath = document.getElementById("folderPath").value;
-        console.log('translate start')
         const results = await window.api.fileRename(folderPath);
-        console.log('translate end');
-        console.log(results);
+        setResult(results);
     };
 
     return (
@@ -29,7 +29,9 @@ function App() {
                 </div>
                 <div>
                 <button type="button" onClick={handleTranslate}>変換開始</button>
-                <Result></Result>
+                <div className="Result">
+                    <textarea>{result}</textarea>
+                </div>
             </div>
         </div>
     );
