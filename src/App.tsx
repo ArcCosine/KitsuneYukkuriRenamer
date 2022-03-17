@@ -5,7 +5,7 @@ import "./Result.css";
 declare global { interface Window { api?: any } }
 
 function App() {
-    const [resultValue,setResultValue] = useState('結果をここに表示')
+    const [resultValue,setResultValue] = useState('')
     const [folderPath,setFolderPath] = useState('');
 
     const handleOpenFolder = async ()=>{
@@ -13,16 +13,20 @@ function App() {
 
         const selectFolder = await window.api.selectFolder();
         setFolderPath(selectFolder);
-        setResultValue("結果をここに表示");
+        setResultValue("");
     }
     
     };
 
     const handleTranslate = async ()=>{
+        if( folderPath==="" || typeof folderPath==="undefined"){
+            setResultValue("フォルダを選んでください");
+            return;
+        }
         if( window.api){
-        const results = await window.api.fileRename(folderPath);
-        setResultValue("変換完了");
-    }
+            const results = await window.api.fileRename(folderPath);
+            setResultValue(results.join("\n"));
+        }
     };
 
     return (
@@ -32,13 +36,14 @@ function App() {
             </header>
             <div>
                 <input type="text" value={folderPath} id="folderPath" readOnly/>
-                </div>
-                <div>
                 <button type="button" onClick={handleOpenFolder}>フォルダを選ぶ</button>
                 </div>
                 <div>
                 <button type="button" onClick={handleTranslate}>変換開始</button>
                 <div className="Result">{resultValue}</div>
+            </div>
+            <div>
+                <a href="https://www.flaticon.com/free-icons/tools" title="tools icons">Tools icons created by Freepik - Flaticon</a>
             </div>
         </div>
     );

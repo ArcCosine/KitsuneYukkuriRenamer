@@ -1,8 +1,13 @@
+import * as fs from 'fs'
 import { Rename } from "./Rename.js"
 
 export async function RenameRule(folderPath) {
     const results = [];
 
+    if(!fs.existsSync(`${folderPath}\\口`) || !fs.existsSync(`${folderPath}\\目`) ){
+        results.push('変換対象がフォルダ内に存在しません');
+        return results;
+    }
     // Mouse
     const beforeHash = ["", "a", "b", "c", "d", "e"];
     const afterHash = [".0", ".1", ".2", ".3", ".4", ""];
@@ -12,7 +17,6 @@ export async function RenameRule(folderPath) {
             const beforeName = `${folderPath}\\口\\${renNum}${beforeHash[j]}.png`;
             const afterName = `${folderPath}\\口\\${renNum}${afterHash[j]}.png`;
             await Rename(beforeName, afterName);
-            results.push(afterName);
         }
     }
 
@@ -30,26 +34,23 @@ export async function RenameRule(folderPath) {
                 const beforeName = `${folderPath}\\目\\${renNum}${beforeEyeHash[j]}.png`;
                 const afterName = `${folderPath}\\目\\${renNum}${afterEyeHash[j]}.png`;
                 await Rename(beforeName, afterName);
-                results.push(afterName);
             }
         } else if ((i >= 7 && i <= 9) || i === 18) {
             for (let j = 0; j < beforeEyeHash2.length; j++) {
                 const beforeName = `${folderPath}\\目\\${renNum}${beforeEyeHash2[j]}.png`;
                 const afterName = `${folderPath}\\目\\${renNum}${afterEyeHash2[j]}.png`;
                 await Rename(beforeName, afterName);
-                results.push(afterName);
             }
         } else if (i >= 10 && i <= 13) {
             for (let j = 0; j < beforeEyeHash3.length; j++) {
                 const beforeName = `${folderPath}\\目\\${renNum}${beforeEyeHash3[j]}.png`;
                 const afterName = `${folderPath}\\目\\${renNum}${afterEyeHash3[j]}.png`;
                 await Rename(beforeName, afterName);
-                results.push(afterName);
             }
         }
     }
     await Rename(`${folderPath}\\目\\34z.png`, `${folderPath}\\目\\34.png`);
-    results.push(`${folderPath}\\目\\34.png`);
+    results.push(`変換が終わりました`);
 
     return results;
 }

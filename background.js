@@ -1,10 +1,26 @@
-import { app, BrowserWindow, dialog, ipcMain } from 'electron'
+import { app, BrowserWindow, dialog, ipcMain, Menu } from 'electron'
 import path from 'path'
 
 import { RenameRule } from "./RenameRule.js"
 
 const isDevelopment = ( ( "" + process.env.NODE_ENV).trim() === 'development')
 
+const template = Menu.buildFromTemplate([
+  {
+    label: "ファイル",
+    submenu: [
+      { role:'close', label:'終了' }
+    ]
+  },
+  {
+    label: 'ヘルプ',
+    submenu:[
+      {role:'about',      label:`${app.name}について` },     
+    ]
+  }
+]);
+
+Menu.setApplicationMenu(template);
 
 async function createWindow () {
   const win = new BrowserWindow({
@@ -68,6 +84,14 @@ app.on('window-all-closed', () => {
     app.quit()
    }
 })
+
+app.setAboutPanelOptions({
+  applicationName: app.name,
+  applicationVersion: process.platform === 'darwin'
+    ? app.getVersion()
+    : `v${app.getVersion()} (electron@${process.versions['electron']})`,
+  copyright: 'Copyright 2022 Arc Cosine',
+});
 
 // Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {

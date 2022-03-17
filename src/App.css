@@ -17,7 +17,7 @@
 input[type=text] {
   font-size: calc(10px + 2vmin);
   line-height: calc(10px + 2vmin);
-  padding: 10px;
+  padding: 12px;
   margin: 0 10px 0 0;
   width: 100vmin;
 }

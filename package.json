@@ -1,6 +1,6 @@
 {
     "name": "kitsuneyukkurirenamer",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "author": "Arc Cosine",
     "description": "KitsuneYukkuriRename tools.",
     "main": "dist/background.js",
@@ -8,7 +8,15 @@
         "productName": "KitsuneYukkuriRenamer",
         "files": [
             "dist/**/*"
-        ]
+        ],
+        "win":{
+            "target": "nsis",
+            "icon": "resource/icon.png"
+        },
+        "nsis": {
+            "oneClick": false,
+            "allowToChangeInstallationDirectory": true
+          }
     },
     "scripts": {
         "dev": "vite",
@@ -22,7 +30,7 @@
         "vite:serve": "vite preview",
         "vite:prdbuild": "vite build --config vite.config.prd.js",
         "electron:start": "set NODE_ENV=development && electron .",
-        "electron:build": "set NODE_ENV=production && electron-builder --win --x64 --dir",
+        "electron:build": "set NODE_ENV=production && electron-builder --win --x64",
         "electron:macbuild": "set NODE_ENV=production && electron-builder --mac --dir",
         "makedir:dist": "node -e \"require('fs').mkdirSync('./dist', { recursive: true })",
         "filecopy:preload": "node -e \"require('fs').copyFileSync('./preload.js', './dist/preload.js')\"",
