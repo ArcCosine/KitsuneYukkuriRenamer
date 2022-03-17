@@ -8,6 +8,10 @@ export async function RenameRule(folderPath) {
         results.push('変換対象がフォルダ内に存在しません');
         return results;
     }
+    if(fs.existsSync(`${folderPath}\\口\\00.0.png`) ){
+        results.push('変換は完了しています');
+        return results;
+    }
     // Mouse
     const beforeHash = ["", "a", "b", "c", "d", "e"];
     const afterHash = [".0", ".1", ".2", ".3", ".4", ""];
