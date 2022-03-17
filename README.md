@@ -9,7 +9,9 @@
 
 ## インストール
 
-[Release](https://github.com/ArcCosine/KitsuneYukkuriRenamer/releases)ページから、最新版のきつねゆっくりリネーマーをダウンロードし、インストールしてください
+[Release](https://github.com/ArcCosine/KitsuneYukkuriRenamer/releases)ページから、最新版のきつねゆっくりリネーマーをダウンロードし、インストールしてください。
+2022/3/18時点では、KitsuneYukkuriRenamer.Setup.0.0.1.zipが最新版になります。
+
 
 ## 使い方
 
