@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -14,15 +15,7 @@
   margin-bottom: 10vmin;
 }
 
-input[type=text] {
+.Result {
+  text-align: center;
   font-size: calc(10px + 2vmin);
-  line-height: calc(10px + 2vmin);
-  padding: 12px;
-  margin: 0 10px 0 0;
-  width: 100vmin;
-}
-
-button {
-  font-size: calc(10px + 2vmin);
-  padding: 10px;
 }
