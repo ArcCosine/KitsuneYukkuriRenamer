@@ -11,12 +11,10 @@ function App() {
 
     const handleOpenFolder = async () => {
         if (window.api) {
-
             const selectFolder = await window.api.selectFolder();
             setFolderPath(selectFolder);
-            setResultValue("");
+            setResultValue("結果");
         }
-
     };
 
     const handleTranslate = async () => {
