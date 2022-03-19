@@ -10,12 +10,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
-  margin-bottom: 10vmin;
 }
 
 .Result {
   text-align: center;
-  font-size: calc(10px + 2vmin);
 }

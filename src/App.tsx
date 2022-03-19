@@ -33,23 +33,23 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <p>きつねゆっくりリネーマー</p>
+                きつねゆっくりリネーマー
             </header>
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-8">
+            <div className="container mt-3">
+                <div className="row mb-3">
+                    <div className="col-8">
                         <input className="form-control" type="text" value={folderPath} id="folderPath" readOnly />
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-4">
                         <Button variant="primary" onClick={handleOpenFolder}>フォルダを選ぶ</Button>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row mb-3">
                     <div className="col-md-10">
                         <Button variant="success" onClick={handleTranslate}>変換開始</Button>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row mb-3">
                     <div className="Result">{resultValue}</div>
                 </div>
             </div>
