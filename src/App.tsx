@@ -6,25 +6,25 @@ import { Button } from 'react-bootstrap';
 declare global { interface Window { api?: any } }
 
 function App() {
-    const [resultValue,setResultValue] = useState('結果')
-    const [folderPath,setFolderPath] = useState('');
+    const [resultValue, setResultValue] = useState('結果')
+    const [folderPath, setFolderPath] = useState('');
 
-    const handleOpenFolder = async ()=>{
-        if( window.api ) {
+    const handleOpenFolder = async () => {
+        if (window.api) {
 
-        const selectFolder = await window.api.selectFolder();
-        setFolderPath(selectFolder);
-        setResultValue("");
-    }
-    
+            const selectFolder = await window.api.selectFolder();
+            setFolderPath(selectFolder);
+            setResultValue("");
+        }
+
     };
 
-    const handleTranslate = async ()=>{
-        if( folderPath==="" || typeof folderPath==="undefined"){
+    const handleTranslate = async () => {
+        if (folderPath === "" || typeof folderPath === "undefined") {
             setResultValue("フォルダを選んでください");
             return;
         }
-        if( window.api){
+        if (window.api) {
             const results = await window.api.fileRename(folderPath);
             setResultValue(results.join("\n"));
         }
@@ -37,20 +37,20 @@ function App() {
             </header>
             <div className="container">
                 <div className="row">
-                <div className="col-md-8">
-                <input className="form-control" type="text" value={folderPath} id="folderPath" readOnly/>
-                </div>
-                <div className="col-md-4">
-                <Button  variant="primary" onClick={handleOpenFolder}>フォルダを選ぶ</Button>
-                </div>
+                    <div className="col-md-8">
+                        <input className="form-control" type="text" value={folderPath} id="folderPath" readOnly />
+                    </div>
+                    <div className="col-md-4">
+                        <Button variant="primary" onClick={handleOpenFolder}>フォルダを選ぶ</Button>
+                    </div>
                 </div>
                 <div className="row">
                     <div className="col-md-10">
-                <Button  variant="success" onClick={handleTranslate}>変換開始</Button>
-                </div>
+                        <Button variant="success" onClick={handleTranslate}>変換開始</Button>
+                    </div>
                 </div>
                 <div className="row">
-                <div className="Result">{resultValue}</div>
+                    <div className="Result">{resultValue}</div>
                 </div>
             </div>
             <footer>

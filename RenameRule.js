@@ -4,11 +4,11 @@ import { Rename } from "./Rename.js"
 export async function RenameRule(folderPath) {
     const results = [];
 
-    if(!fs.existsSync(`${folderPath}\\口`) || !fs.existsSync(`${folderPath}\\目`) ){
+    if (!fs.existsSync(`${folderPath}\\口`) || !fs.existsSync(`${folderPath}\\目`)) {
         results.push('変換対象がフォルダ内に存在しません');
         return results;
     }
-    if(fs.existsSync(`${folderPath}\\口\\00.0.png`) ){
+    if (fs.existsSync(`${folderPath}\\口\\00.0.png`)) {
         results.push('変換は完了しています');
         return results;
     }
@@ -30,7 +30,7 @@ export async function RenameRule(folderPath) {
     const beforeEyeHash2 = ["a-15", "b-15", "c-15", "d-15", "e-15", "-15"];
     const afterEyeHash2 = [".4", ".3", ".2", ".1", ".0", ""];
     const beforeEyeHash3 = ["k", "l", "m", "n", "o"];
-    const afterEyeHash3 = [".4", ".3", ".2", ".1",".0"];
+    const afterEyeHash3 = [".4", ".3", ".2", ".1", ".0"];
     for (let i = 0; i < 19; i++) {
         const renNum = ("00" + i).slice(-2);
         if ((i >= 0 && i <= 6) || (i >= 14 && i <= 17)) {
