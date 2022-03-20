@@ -12,6 +12,7 @@ export async function RenameRule(folderPath) {
         results.push('変換は完了しています');
         return results;
     }
+    
     // Mouse
     const beforeHash = ["", "a", "b", "c", "d", "e"];
     const afterHash = [".0", ".1", ".2", ".3", ".4", ""];
