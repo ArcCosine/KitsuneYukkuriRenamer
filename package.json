@@ -1,17 +1,27 @@
 {
     "name": "kitsuneyukkurirenamer",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": "Arc Cosine",
     "description": "KitsuneYukkuriRename tools.",
     "main": "dist/background.js",
     "build": {
+        "appId" : "work.nyaan.kitsuneyukkurirenamer",
         "productName": "KitsuneYukkuriRenamer",
         "files": [
-            "dist/**/*"
+            "!.git",
+            "!.dist",
+            "dist/background.js",
+            "dist/index.html",
+            "dist/preload.js",
+            "dist/assets/**/*",
+            "node_modules",
+            "package.json"
         ],
+        "asar": false,
         "win": {
             "target": "nsis",
-            "icon": "resource/icon.png"
+            "icon": "resource/icon.png",
+            "legalTrademarks" : "Kindness"
         },
         "nsis": {
             "oneClick": false,
@@ -44,19 +54,19 @@
         "react-dom": "^17.0.2"
     },
     "devDependencies": {
-        "@testing-library/jest-dom": "^5.16.2",
+        "@testing-library/jest-dom": "^5.16.3",
         "@testing-library/react": "^12.1.4",
         "@types/jest": "^27.4.1",
-        "@types/react": "^17.0.40",
-        "@types/react-dom": "^17.0.13",
+        "@types/react": "^17.0.43",
+        "@types/react-dom": "^17.0.14",
         "@vitejs/plugin-react": "^1.2.0",
-        "electron": "^17.1.2",
+        "electron": "^17.2.0",
         "electron-builder": "^22.14.13",
         "electron-devtools-installer": "^3.2.0",
         "jest": "^27.5.1",
         "npm-run-all": "^4.1.5",
-        "ts-jest": "^27.1.3",
-        "typescript": "^4.6.2",
+        "ts-jest": "^27.1.4",
+        "typescript": "^4.6.3",
         "vite": "^2.8.6"
     }
 }
