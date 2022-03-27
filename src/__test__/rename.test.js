@@ -1,6 +1,7 @@
-import { Rename } from "../../Rename.js";
+import { test, beforeAll, afterAll,expect } from 'vitest'
+import * as fs from 'fs'
+import { Rename } from "../../Rename.js"
 
-const fs = require("fs");
 
 const beforeFile = "testfile.txt";
 const afterFile = "renamefile.txt";
