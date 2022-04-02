@@ -23,8 +23,7 @@ function App() {
             return;
         }
         if (window.api) {
-            const results = await window.api.fileRename(folderPath);
-            setResultValue(results.join("\n"));
+            setResultValue(await window.api.fileRename(folderPath));
         }
     };
 

@@ -2,15 +2,12 @@ import * as fs from 'fs'
 import { Rename } from "./Rename.js"
 
 export async function RenameRule(folderPath) {
-    const results = [];
 
     if (!fs.existsSync(`${folderPath}\\口`) || !fs.existsSync(`${folderPath}\\目`)) {
-        results.push('変換対象がフォルダ内に存在しません');
-        return results;
+        return '変換対象がフォルダ内に存在しません';
     }
     if (fs.existsSync(`${folderPath}\\口\\00.0.png`)) {
-        results.push('変換は完了しています');
-        return results;
+        return '変換は完了しています';
     }
     
     // Mouse
@@ -55,7 +52,6 @@ export async function RenameRule(folderPath) {
         }
     }
     await Rename(`${folderPath}\\目\\34z.png`, `${folderPath}\\目\\34.png`);
-    results.push(`変換が終わりました`);
 
-    return results;
+    return `変換が終わりました`;
 }
