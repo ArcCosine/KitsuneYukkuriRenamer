@@ -8,14 +8,10 @@
         "appId": "work.nyaan.kitsuneyukkurirenamer",
         "productName": "KitsuneYukkuriRenamer",
         "files": [
-            "!.git",
-            "!.dist",
             "dist/background.js",
             "dist/index.html",
             "dist/preload.js",
-            "dist/assets/**/*",
-            "node_modules",
-            "package.json"
+            "dist/assets/**/*"
         ],
         "asar": false,
         "win": {
