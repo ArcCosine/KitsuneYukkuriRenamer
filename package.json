@@ -1,67 +1,27 @@
 {
-    "name": "kitsuneyukkurirenamer",
-    "version": "0.0.2",
-    "author": "Arc Cosine",
-    "description": "KitsuneYukkuriRename tools.",
-    "main": "dist/background.js",
-    "build": {
-        "appId": "work.nyaan.kitsuneyukkurirenamer",
-        "productName": "KitsuneYukkuriRenamer",
-        "files": [
-            "dist/background.js",
-            "dist/index.html",
-            "dist/preload.js",
-            "dist/assets/**/*"
-        ],
-        "asar": false,
-        "win": {
-            "target": "nsis",
-            "icon": "resource/icon.png",
-            "legalTrademarks": "Kindness"
-        },
-        "nsis": {
-            "oneClick": false,
-            "allowToChangeInstallationDirectory": true
-        }
-    },
-    "scripts": {
-        "dev": "vite",
-        "preview": "vite preview",
-        "start": "npm-run-all makedir:dist filecopy:* background:build --parallel vite:dev --race electron:start",
-        "build": "run-s clean vite:build filecopy:preload background:build electron:build",
-        "build:mac": "run-s clean vite:build electron:macbuild",
-        "background:build": "rollup --config rollup.config.js",
-        "vite:dev": "vite",
-        "vite:build": "tsc && vite build",
-        "vite:serve": "vite preview",
-        "vite:prdbuild": "vite build --config vite.config.prd.js",
-        "electron:start": "set NODE_ENV=development && electron .",
-        "electron:build": "set NODE_ENV=production && electron-builder --win --x64",
-        "electron:macbuild": "set NODE_ENV=production && electron-builder --mac --dir",
-        "makedir:dist": "node -e \"require('fs').mkdirSync('./dist', { recursive: true })",
-        "filecopy:preload": "node -e \"require('fs').copyFileSync('./preload.js', './dist/preload.js')\"",
-        "clean": "rimraf dist",
-        "test": "vitest",
-        "coverage": "vitest run --coverage"
-    },
-    "dependencies": {
-        "bootstrap": "^5.1.3",
-        "react": "^17.0.2",
-        "react-bootstrap": "^2.2.1",
-        "react-dom": "^17.0.2"
-    },
-    "devDependencies": {
-        "@testing-library/react": "^12.1.4",
-        "@types/react": "^17.0.43",
-        "@types/react-dom": "^17.0.14",
-        "@vitejs/plugin-react": "^1.2.0",
-        "c8": "^7.11.0",
-        "electron": "^17.2.0",
-        "electron-builder": "^22.14.13",
-        "electron-devtools-installer": "^3.2.0",
-        "npm-run-all": "^4.1.5",
-        "typescript": "^4.6.3",
-        "vite": "^2.8.6",
-        "vitest": "^0.7.11"
-    }
+  "name": "KitsuneYukkuriRenamer",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^1.0.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^1.3.0",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.3",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.9"
+  }
 }
